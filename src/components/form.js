@@ -11,16 +11,16 @@ export default function Form({ sheet, setSheet, sheets, setSheets }) {
 
   const handleChange = (event) => {
     const name = event.target.name;
-    let value = event.target.value;
-//    value =  value.includes('\n') ? value.split('\n').join('<br />'): value;
+    const value = event.target.value;
 
-    console.log(event.target.value);
     setInerSheet((values) => ({ ...values, [name]: value }));
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
+
     const timestamp = () => Date.now();
+    
     if (Object.values(inerSheet).every(x => x === '')) {
         alert('❌没东西，不要打印')
         return
